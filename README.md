@@ -36,7 +36,14 @@ To execute the program, go into the program's folder (either editor_app or pathg
 python app.py
 ```
 
-## Mac Installation Instructions
+## Mac App
+Download `Object Creator-<version>-macOS-arm64.dmg` (Apple Silicon, M1 and newer) or `Object Creator-<version>-macOS-x86_64.dmg` (Intel Macs), open it and drag Object Creator into Applications. The app is not signed with an Apple Developer ID, so the first time you open it macOS will block it: go to System Settings > Privacy & Security and click "Open Anyway". The disk image contains a step-by-step "How to open" guide.
+
+To build the app and disk image yourself, run `./build_files/build_mac.sh` from the repo folder. It creates its own build environment and writes the results to `dist/`. The app is built for the architecture of the Python used; to build the Intel version on Apple Silicon, use an x86_64 Python, e.g. `PYTHON="$(uv python find cpython-3.13-macos-x86_64-none)" ./build_files/build_mac.sh`. The GitHub Actions workflow `.github/workflows/build-macos.yml` does this for both versions and attaches the disk images to every published release.
+
+Opening `.DAT` files is not supported on Mac yet, since it relies on the Windows version of OpenRCT2.
+
+## Mac Installation Instructions (from source)
 First, clone this repository to your computer. Coders will know how to do this; if that isn't you, the easiest way to do this is to download github desktop and go to file => clone repository. Go to the URL tab and paste in https://github.com/danielmeinert/objectcreator .
 
 I recommend cloning it in /Users/{your username}/objectcreator or similar.

@@ -16,6 +16,7 @@ from customwidgets import ColorSelectWidget
 import sys
 import io
 from os import getcwd
+from os.path import join
 
 import pathgenerator.generator as gen
 import auxiliaries as aux
@@ -138,7 +139,7 @@ class PathGeneratorWidget(QWidget):
         self.labelSuffix.hide()
         self.labelPrefix.setText('')
 
-        self.lineeditOutputFolder.setText(f'{getcwd()}\\output')
+        self.lineeditOutputFolder.setText(join(getcwd(), 'output'))
 
         self.comboboxRemapToColor.addItems(
             list(self.generator.current_palette.color_dict))
